@@ -11,18 +11,18 @@ MediaWiki é uma plataforma colaborativa para criação de wikis, utilizada por 
 ### Explicação do docker-compose.yaml
 - **version: '3.8'**: Define a versão do Docker Compose.
 - **services**: Lista os serviços que serão criados.
-  - **db**: Serviço do banco de dados PostgreSQL.
-    - **image: postgres:13**: Usa a imagem oficial do PostgreSQL versão 13.
-    - **restart: always**: Reinicia o container automaticamente.
-    - **environment**: Variáveis para configurar o banco (usuário, senha, nome do banco).
-    - **volumes**: Persiste os dados do banco em um volume chamado `db-data`.
-    - **networks**: Conecta à rede interna `app-network`.
-  - **web**: Serviço da aplicação web (MediaWiki).
-    - **build: .**: Constrói a imagem a partir do Dockerfile local.
-    - **ports**: Mapeia a porta 8080 do host para a porta 80 do container.
-    - **volumes**: Monta o diretório `./app` no container.
-    - **depends_on**: Garante que o serviço web só inicie após o banco.
-    - **networks**: Conecta à rede interna `app-network`.
+	- **db**: Serviço do banco de dados PostgreSQL.
+		- **image: postgres:13**: Usa a imagem oficial do PostgreSQL versão 13.
+		- **restart: always**: Reinicia o container automaticamente.
+		- **environment**: Variáveis para configurar o banco (usuário, senha, nome do banco).
+		- **volumes**: Persiste os dados do banco em um volume chamado `db-data`.
+		- **networks**: Conecta à rede interna `app-network`.
+	- **web**: Serviço da aplicação web (MediaWiki).
+		- **build: .**: Constrói a imagem a partir do Dockerfile local.
+		- **ports**: Mapeia a porta 8080 do host para a porta 80 do container.
+		- **volumes**: Monta o diretório `./app` no container.
+		- **depends_on**: Garante que o serviço web só inicie após o banco.
+		- **networks**: Conecta à rede interna `app-network`.
 - **networks**: Define a rede interna do tipo bridge.
 - **volumes**: Volume nomeado para persistência dos dados do banco.
 
@@ -41,18 +41,18 @@ MediaWiki is a collaborative platform for creating wikis, used by projects like 
 ### docker-compose.yaml explanation
 - **version: '3.8'**: Sets the Docker Compose version.
 - **services**: Lists the services to be created.
-  - **db**: PostgreSQL database service.
-    - **image: postgres:13**: Uses the official PostgreSQL version 13 image.
-    - **restart: always**: Automatically restarts the container.
-    - **environment**: Variables to configure the database (user, password, database name).
-    - **volumes**: Persists database data in a volume named `db-data`.
-    - **networks**: Connects to the internal `app-network`.
-  - **web**: Web application service (MediaWiki).
-    - **build: .**: Builds the image from the local Dockerfile.
-    - **ports**: Maps host port 8080 to container port 80.
-    - **volumes**: Mounts the `./app` directory in the container.
-    - **depends_on**: Ensures the web service starts only after the database.
-    - **networks**: Connects to the internal `app-network`.
+	- **db**: PostgreSQL database service.
+		- **image: postgres:13**: Uses the official PostgreSQL version 13 image.
+		- **restart: always**: Automatically restarts the container.
+		- **environment**: Variables to configure the database (user, password, database name).
+		- **volumes**: Persists database data in a volume named `db-data`.
+		- **networks**: Connects to the internal `app-network`.
+	- **web**: Web application service (MediaWiki).
+		- **build: .**: Builds the image from the local Dockerfile.
+		- **ports**: Maps host port 8080 to container port 80.
+		- **volumes**: Mounts the `./app` directory in the container.
+		- **depends_on**: Ensures the web service starts only after the database.
+		- **networks**: Connects to the internal `app-network`.
 - **networks**: Defines the internal bridge network.
 - **volumes**: Named volume for database data persistence.
 
